@@ -144,20 +144,6 @@ para realizar esta parte se implementó: <br>
 •	reconstrucción del video detectado <br>
 Este pipeline permite comparar modelos visualmente y analizar jugadas específicas.
 
-<p float="left">
-  <img src="Videos/gif/video_3m30s.gif" width="45%" />
-  <img src="Videos/gif/video_detectado_3m30s.gif" width="45%" />
-</p>
-
-<p float="left">
-  <img src="Videos/gif/video_5m10s.gif" width="45%" />
-  <img src="Videos/gif/video_detectado_5m10s.gif" width="45%" />
-</p>
-
-<p float="left">
-  <img src="Videos/gif/video_8m00s.gif" width="45%" />
-  <img src="Videos/gif/video_detectado_8m00s.gif" width="45%" />
-</p>
 
 ## Conclusiones
 
