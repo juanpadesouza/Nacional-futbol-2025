@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 4
+names: ['Ball', 'Goalkeeper', 'Player', 'Referee']
+
+roboflow:
+  workspace: football-2shry
+  project: futbol-uruguayo-ylfyu
+  version: 4
+  license: MIT
+  url: https://universe.roboflow.com/football-2shry/futbol-uruguayo-ylfyu/dataset/4

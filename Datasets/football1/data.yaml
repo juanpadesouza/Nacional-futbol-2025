@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 4
+names: ['goalkeeper', 'ball', 'referee', 'player']
+
+roboflow:
+  workspace: football-innq8
+  project: football-i1lvk
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/football-innq8/football-i1lvk/dataset/1
