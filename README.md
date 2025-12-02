@@ -129,9 +129,9 @@ Los errores comunes de este modelo en el dataset de Nacional fueron
 
 Estos errores visuales son coherentes con la naturaleza del dataset.
 <p float="left">
-  <img width="35%" height="1133" alt="image" src="https://github.com/user-attachments/assets/29e7e325-be86-484f-88aa-f7ea39412e9c" />
-  <img width="35%" height="1125" alt="image" src="https://github.com/user-attachments/assets/1741d77f-3870-45ef-9137-e18b68fc7dec" />
-  <img width="35%" height="1125" alt="image" src="https://github.com/user-attachments/assets/b7fb3d9f-6867-4294-8ce8-ed92a3f1c28a" />
+  <img width="30%" height="1133" alt="image" src="https://github.com/user-attachments/assets/29e7e325-be86-484f-88aa-f7ea39412e9c" />
+  <img width="30%" height="1125" alt="image" src="https://github.com/user-attachments/assets/1741d77f-3870-45ef-9137-e18b68fc7dec" />
+  <img width="30%" height="1125" alt="image" src="https://github.com/user-attachments/assets/b7fb3d9f-6867-4294-8ce8-ed92a3f1c28a" />
 </p>
 
 
