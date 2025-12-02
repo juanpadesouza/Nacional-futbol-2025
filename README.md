@@ -3,12 +3,12 @@
 ## Introducción
 
 El objetivo de este proyecto fue desarrollar un sistema automático para detectar jugadores, árbitros, arqueros y la pelota en imágenes y videos de partidos de fútbol.
-La detección robusta de jugadores es un problema desafiante debido a variaciones de:
-•	iluminación
-•	distancia a la cámara
-•	colores de camisetas
-•	resoluciones distintas
-•	movimientos rápidos
+La detección robusta de jugadores es un problema desafiante debido a variaciones de: <br> <br>
+•	iluminación <br>
+•	distancia a la cámara <br>
+•	colores de camisetas <br>
+•	resoluciones distintas <br>
+•	movimientos rápidos <br> <br>
 Para este trabajo se utilizaron modelos YOLOv8, un modelo preentrenado específico para fútbol disponible en HuggingFace y dos datasets:
 1.	Football1 – Extraido de Roboflow
 2.	Nacional - dataset propio anotado con Roboflow
@@ -19,10 +19,10 @@ El proyecto incluyó, fine tunear el modelo encontrado, evaluación cruzada, an�
 ### Football1 (Roboflow)
 Dataset generalista de partidos internacionales, con vistas tribuna y televisivas.
 Clases: player, goalkeeper, referee, ball.
-Distribución:
-•	Train: 1053
-•	Valid: 259
-•	Test: 126
+Distribución: <br>
+•	Train: 1053 <br>
+•	Valid: 259 <br>
+•	Test: 126 <br>
 
 Este dataset fue descargado desde la pagina de Roboflow en formato YOLOv8. Fue utilizado para finetunear el modelo de huggingface.
 Pagina del Dataset: https://universe.roboflow.com/football-innq8/football-i1lvk
@@ -35,10 +35,10 @@ Pagina del Dataset: https://universe.roboflow.com/football-innq8/football-i1lvk
 Dataset creado a partir de videos del Club Nacional de Football, donde se seleccionaron a mano 350 imagenes. Para etiquetar cada imagen se utilizo una herramienta de Roboflow.
 Incluye las distintas camisetas (local, visitante, alternativas).
 Tamaño total: 350 imágenes.
-Distribución:
-•	Train: 200
-•	Valid: 20
-•	Test: 130
+Distribución: <br>
+•	Train: 200 <br>
+•	Valid: 20 <br>
+•	Test: 130 <br>
 
 Este dataset es más difícil debido a la similitud de colores, ángulos poco comunes y mayor ruido visual.
 Para realizar este dataset, se tomaron 350 imágenes de distintos partidos de la temporada 2025, contemplando que en todos los partidos se tomaran la misma cantidad de imágenes. Tambien se tuvo en cuenta que Nacional estuviera con las 4 equipaciones disponibles (Blanca, roja, azul y celeste). Una vez realizadas las imágenes se etiquetaron manualmente una por una para tener el dataset completo.
@@ -71,18 +71,18 @@ Mejora el desempeño al adaptarse al dominio específico.
 
 Los resultados se van a comparar en los siguientes modelos
 
-•	hf_football → modelo preentrenado de HuggingFace
-•	finetune_football → modelo hf_football fine-tuneado sobre Football1
-•	hf_Nacional → modelo fine-tuneado sobre el dataset Nacional
+•	hf_football → modelo preentrenado de HuggingFace <br>
+•	finetune_football → modelo hf_football fine-tuneado sobre Football1 <br>
+•	hf_Nacional → modelo fine-tuneado sobre el dataset Nacional <br>
 
-Evaluados en dos datasets:
-•	football1
-•	Nacional
+Evaluados en dos datasets: <br>
+•	football1 <br>
+•	Nacional <br>
 
-Los valores reportan:
-•	Precisión
-•	Recall
-•	mAP50
+Los valores reportan: <br>
+•	Precisión <br>
+•	Recall <br>
+•	mAP50 <br>
 
 A continuación se presentan los resultados de cada modelo 
 
@@ -123,9 +123,9 @@ Es el mejor modelo para videos reales de Nacional, y su generalización inversa 
 
 Los errores comunes de este modelo en el dataset de Nacional fueron 
 
-•	player ↔ referee
-•	goalkeeper ↔ player
-•	ball ↔ background
+•	player ↔ referee <br>
+•	goalkeeper ↔ player <br>
+•	ball ↔ background <br>
 
 Estos errores visuales son coherentes con la naturaleza del dataset.
 <p float="left">
@@ -137,28 +137,41 @@ Estos errores visuales son coherentes con la naturaleza del dataset.
 
 ## Procesamiento de Video 
 
-para realizar esta parte se implementó:
-•	extracción de fragmentos de video por tiempo
-•	conversión a frames configurando FPS deseado
-•	inferencia YOLO sobre cada frame
-•	reconstrucción del video detectado
+para realizar esta parte se implementó: <br>
+•	extracción de fragmentos de video por tiempo <br>
+•	conversión a frames configurando FPS deseado <br>
+•	inferencia YOLO sobre cada frame <br>
+•	reconstrucción del video detectado <br>
 Este pipeline permite comparar modelos visualmente y analizar jugadas específicas.
 
+<p float="left">
+  <img src="Videos/gif/video_3m30s.gif" width="45%" />
+  <img src="Videos/gif/video_detectado_3m30s.gif" width="45%" />
+</p>
 
+<p float="left">
+  <img src="Videos/gif/video_5m10s.gif" width="45%" />
+  <img src="Videos/gif/video_detectado_5m10s.gif" width="45%" />
+</p>
+
+<p float="left">
+  <img src="Videos/gif/video_8m00s.gif" width="45%" />
+  <img src="Videos/gif/video_detectado_8m00s.gif" width="45%" />
+</p>
 
 ## Conclusiones
 
-•	Los modelos finetuneados son muy sensibles a los dataset que se utilizaron para reentrenar
-•	Ninguno de los dos modelos generaliza.
-•	El modelo Hf_Nacional generaliza bien en el futbol uruguayo, esto se vio reflejado en los videos.
-•	Más datos en el dataset de nacional mejorarían aun mas el rendimiento del modelo
+•	Los modelos finetuneados son muy sensibles a los dataset que se utilizaron para reentrenar <br>
+•	Ninguno de los dos modelos generaliza. <br>
+•	El modelo Hf_Nacional generaliza bien en el futbol uruguayo, esto se vio reflejado en los videos. <br>
+•	Más datos en el dataset de nacional mejorarían aun mas el rendimiento del modelo <br>
 
 
 ## Trabajo futuro
-•	Implementar e integrar tracking, en videos o en tiempo real.
-•	Aumentar el dataset de Nacional con mas imágenes
-•	Integrar reconocimiento de camisetas o equipos
-•	Detectar otras cosas como líneas, arcos, zonas, goles, etc.
+•	Implementar e integrar tracking, en videos o en tiempo real. <br>
+•	Aumentar el dataset de Nacional con mas imágenes <br>
+•	Integrar reconocimiento de camisetas o equipos <br>
+•	Detectar otras cosas como líneas, arcos, zonas, goles, etc. <br>
 
 
 
